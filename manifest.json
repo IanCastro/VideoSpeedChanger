@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Change Video Speed",
+    "version": "1.1",
+    "description": "Use keyboard shortcuts to control videos on any website:\n- Press '+' to increase playback speed.\n- Press '-' to decrease playback speed.\n- Press '*' to jump forward 2 seconds (adjusted by playback speed).\n- Press '/' to jump backward 2 seconds (adjusted by playback speed).\nMessages will appear on the video or screen to indicate changes.",
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "action": {
+        "default_icon": {
+            "16": "icon.png",
+            "48": "icon.png",
+            "128": "icon.png"
+        }
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "all_frames": true,
+            "js": ["contentScript.js"]
+        }
+    ]
+}
